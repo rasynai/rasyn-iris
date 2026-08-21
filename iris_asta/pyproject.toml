@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iris-asta"
+version = "0.2.0"
+description = "Corpus client and solver library for Ai2 AstaBench tasks; the paper-finder path powers IRIS."
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+# Benchmark-harness extras: names only. Install from the official repos
+# (inspect-ai from PyPI; astabench from https://github.com/allenai/asta-bench)
+# - the core iris_asta package stays stdlib-only and never requires them.
+bench = ["inspect-ai", "astabench"]
+
+# Inspect-AI plugin discovery: inspect imports this module at startup, firing
+# the @solver registration in solver_entry so `--solver iris_solver` resolves
+# NATIVELY (returns TaskState) instead of via the deprecated file@fn bridge
+# path (which wrongly expects an agent-style dict with an 'output' key).
+[project.entry-points.inspect_ai]
+iris_asta = "iris_asta.solver_entry"
+
+[tool.setuptools.packages.find]
+include = ["iris_asta*"]

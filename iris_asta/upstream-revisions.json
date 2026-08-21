@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-07-17",
+  "asta_bench": {
+    "repository": "https://github.com/allenai/asta-bench.git",
+    "commit": "36c9bc14a83b95851a4f5c4baaccdde6d1c0cafb",
+    "config": "astabench/config/v1.0.0.yml"
+  },
+  "agent_baselines": {
+    "repository": "https://github.com/allenai/agent-baselines.git",
+    "commit": "fbff4ce0c31b9607605448ec66f1243a16c9c33a"
+  }
+}
